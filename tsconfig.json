@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "esnext",
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "moduleResolution": "node",
+        "strict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "jsx": "react",
+        "declaration": true,
+        "pretty": true,
+        "rootDir": ".",
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "noFallthroughCasesInSwitch": true,
+        "importHelpers": true,
+        "sourceMap": false,
+        "paths": {
+            "@rc-hook/core": [
+                "./packages/core/index.ts"
+            ],
+            "@rc-hook/core/*": [
+                "./packages/core/*"
+            ],
+            "@rc-hook/shared": [
+                "./packages/shared/index.ts"
+            ],
+            "@rc-hook/shared/*": [
+                "./packages/shared/*"
+            ]
+        },
+    },
+    "include": [
+        "packages",
+        "playgrounds",
+        "scripts"
+    ]
+}

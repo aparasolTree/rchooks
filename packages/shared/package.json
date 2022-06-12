@@ -1,0 +1,26 @@
+{
+    "name": "@rc-hook/shared",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [
+        "react",
+        "rc-hook",
+        "utils"
+    ],
+    "author": "aParasolTree<https://www.github.com/aParasolTree>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aparasolTree/rc-hooks.git",
+        "directory": "pagekages/shared"
+    },
+    "bugs": {
+        "url": "https://github.com/aparasolTree/rc-hooks/issues"
+    },
+    "peerDependencies": {
+        "react": "^16.8.0  || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
+    }
+}
