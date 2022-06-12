@@ -1,5 +1,5 @@
 {
-    "name": "@rc-hook/core",
+    "name": "@r-hooks/core",
     "version": "1.0.0",
     "description": "react hooks",
     "main": "index.js",
