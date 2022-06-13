@@ -50,9 +50,9 @@ const bounding = useElementBounding(target: React.RefObject<Element>, options: U
 <div>
 <pre>
 {
-    reset?: boolean; // Whether to allow reset when the element does not exist
-    windowResize?: boolean; // Whether to listen <b style="color: orange">window</b> <b style="color: orange">resize</b> event
-    windowScroll?: boolean; // Whether to listen <b style="color: orange">window</b> <b style="color: orange">scroll</b> event
+    reset?: boolean; // Whether to allow reset when the element does not exist (default: `true`)
+    windowResize?: boolean; // Whether to listen <b style="color: orange">window</b> <b style="color: orange">resize</b> event (default: `true`)
+    windowScroll?: boolean; // Whether to listen <b style="color: orange">window</b> <b style="color: orange">scroll</b> event (default: `true`)
 }
 </pre>
 </div>

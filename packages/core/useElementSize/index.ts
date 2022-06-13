@@ -7,7 +7,7 @@ export function useElementSize(
     initialSize: Size = { width: 0, height: 0 },
     options: ResizeObserverOptions = {}
 ) {
-    const [size, setSize] = useState(initialSize);
+    const [size, setSize] = useState<Size>(initialSize);
 
     useResizeObserver(
         target,

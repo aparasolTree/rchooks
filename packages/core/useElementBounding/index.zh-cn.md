@@ -50,9 +50,9 @@ const bounding = useElementBounding(target: React.RefObject<Element>, options: U
 <div>
 <pre>
 {
-    reset?: boolean; // 元素不存在时是否允许重置
-    windowResize?: boolean; // 是否监听 <b style="color: orange">window</b> <b style="color: orange">resize</b> 事件
-    windowScroll?: boolean; // 是否监听 <b style="color: orange">window</b> <b style="color: orange">scroll</b> 事件
+    reset?: boolean; // 元素不存在时是否允许重置 (默认为: `true`)
+    windowResize?: boolean; // 是否监听 <b style="color: orange">window</b> <b style="color: orange">resize</b> 事件 (默认为: `true`)
+    windowScroll?: boolean; // 是否监听 <b style="color: orange">window</b> <b style="color: orange">scroll</b> 事件 (默认为: `true`)
 }
 </pre>
 </div>
