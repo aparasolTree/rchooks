@@ -1,14 +1,13 @@
-import { Position } from '@r-hooks/shared';
 import { useState } from 'react';
-import { useRafFn } from '../useRafFn';
+import { useEventListener } from '../useEventListener';
 
-export function useElementByPoint(position: Required<Position>) {
+export function useElementByPoint() {
     const [element, setElement] = useState<Element | null>(null);
-    const [isActive, { start, cancel }] = useRafFn(() => {
-        const newElement = document.elementFromPoint(position.x, position.y);
+    const stop = useEventListener('mousemove', (event: MouseEvent) => {
+        const newElement = document.elementFromPoint(event.pageX, event.pageY);
         if (element === newElement) return;
         setElement(newElement);
     });
 
-    return [element, { isActive, start, cancel }] as const;
+    return [element, stop] as const;
 }

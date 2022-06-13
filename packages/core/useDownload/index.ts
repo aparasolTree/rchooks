@@ -25,7 +25,7 @@ const parseFileURL = (url: string): IFileInfo => {
     const filename = url.split(/(\/|\\)/g).pop()!;
     return {
         url: url,
-        filename,
+        filename: decodeURIComponent(filename),
         extension: filename.split('.').pop()!,
         ...objectPick(Url, ['hash', 'host', 'hostname', 'origin', 'pathname', 'protocol']),
     };

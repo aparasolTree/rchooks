@@ -9,7 +9,7 @@ export * from './useDateNow';
 export * from './useDebounceFn';
 export * from './useDownload';
 export * from './useElementBounding';
-export * from './useELementByPoint';
+export * from './useElementByPoint';
 export * from './useElementHover';
 export * from './useElementSize';
 export * from './useElementVisibility';
