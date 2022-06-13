@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { Fn } from '@rc-hook/shared';
-import { throttle, ThrottleOptions } from '@rc-hook/shared';
+import { Fn } from '@r-hooks/shared';
+import { throttle, ThrottleOptions } from '@r-hooks/shared';
 import { useLatest } from '../useLatest';
 import { useUnmount } from '../useUnmount';
 

@@ -24,17 +24,18 @@
         "noFallthroughCasesInSwitch": true,
         "importHelpers": true,
         "sourceMap": false,
+        "resolveJsonModule": true,
         "paths": {
-            "@rc-hook/core": [
+            "@r-hooks/core": [
                 "./packages/core/index.ts"
             ],
-            "@rc-hook/core/*": [
+            "@r-hooks/core/*": [
                 "./packages/core/*"
             ],
-            "@rc-hook/shared": [
+            "@r-hooks/shared": [
                 "./packages/shared/index.ts"
             ],
-            "@rc-hook/shared/*": [
+            "@r-hooks/shared/*": [
                 "./packages/shared/*"
             ]
         },

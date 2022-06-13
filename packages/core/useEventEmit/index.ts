@@ -1,4 +1,4 @@
-import { Fn } from '@rc-hook/shared';
+import { Fn } from '@r-hooks/shared';
 import { useRef } from 'react';
 import { useUnmount } from '../useUnmount';
 import EventEmit from './EventEmit';

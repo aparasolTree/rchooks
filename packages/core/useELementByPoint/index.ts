@@ -1,4 +1,4 @@
-import { Position } from '@rc-hook/shared';
+import { Position } from '@r-hooks/shared';
 import { useState } from 'react';
 import { useRafFn } from '../useRafFn';
 

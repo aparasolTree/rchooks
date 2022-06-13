@@ -1,4 +1,4 @@
-import { isBrowser } from '@rc-hook/shared';
+import { isBrowser } from '@r-hooks/shared';
 import { useCallback, useRef } from 'react';
 import { useUnmount } from '../useUnmount';
 

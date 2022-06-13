@@ -1,4 +1,4 @@
-import { Fn } from '@rc-hook/shared';
+import { Fn } from '@r-hooks/shared';
 import { MutableRefObject } from 'react';
 
 const cacheEvent: Map<string, Set<Fn>> = new Map();

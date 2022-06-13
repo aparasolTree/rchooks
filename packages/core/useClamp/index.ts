@@ -1,4 +1,4 @@
-import { clamp } from '@rc-hook/shared';
+import { clamp } from '@r-hooks/shared';
 import { useCallback } from 'react';
 
 export function useClamp(min: number, max: number) {

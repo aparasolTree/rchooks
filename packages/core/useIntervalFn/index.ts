@@ -1,4 +1,4 @@
-import { Fn, isBrowser } from '@rc-hook/shared';
+import { Fn, isBrowser } from '@r-hooks/shared';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLatest } from '../useLatest';
 

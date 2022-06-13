@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import type { CSSProperties } from 'react';
 import { useMount } from '../useMount';
-import { genRangeRandom, hyphenate, isBrowser } from '@rc-hook/shared';
+import { genRangeRandom, hyphenate, isBrowser } from '@r-hooks/shared';
 import { useUpdateEffect } from '../useUpdateEffect';
 import style from './config';
 

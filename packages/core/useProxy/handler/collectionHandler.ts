@@ -1,4 +1,4 @@
-import { Fn } from '@rc-hook/shared';
+import { Fn } from '@r-hooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 export type CollectionType = InterableCollections | WeakCollection;
@@ -62,6 +62,7 @@ function collectionProxy(update: Fn, options?: ProxyOptions) {
             } else if (oldValue !== value && (!Number.isNaN(value) || !Number.isNaN(oldValue))) {
                 update();
             }
+            return true;
         },
         forEach(this: InterableCollections, callback: Function, thisArg?: unknown) {
             const target = toRaw(this);

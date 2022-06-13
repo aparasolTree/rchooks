@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Cookies, CookieOptions } from '@rc-hook/shared';
+import { Cookies, CookieOptions } from '@r-hooks/shared';
 
 interface CookieAction {
     updateCookie: (newValue: string, options?: CookieOptions) => void;

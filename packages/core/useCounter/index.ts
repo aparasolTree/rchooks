@@ -1,4 +1,4 @@
-import { clamp } from '@rc-hook/shared';
+import { clamp } from '@r-hooks/shared';
 import { useMemo, useState } from 'react';
 
 export interface UseCounterOptions {

@@ -1,4 +1,4 @@
-import type { Position } from '@rc-hook/shared';
+import type { Position } from '@r-hooks/shared';
 import { useState } from 'react';
 import { useEventListener } from '../useEventListener';
 

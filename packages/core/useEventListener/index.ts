@@ -1,4 +1,4 @@
-import { defaultWindow, Fn, isBrowser, isString, noop, unRef } from '@rc-hook/shared';
+import { defaultWindow, Fn, isBrowser, isString, noop, unRef } from '@r-hooks/shared';
 import { RefObject, useEffect, useRef } from 'react';
 import { useLatest } from '../useLatest';
 

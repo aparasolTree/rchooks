@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { parseDate } from '../useDate';
 import { useInterval } from '../useInterval';
+import { useMount } from '../useMount';
 
 export interface UseTimeAgoFormat {
     justNow: [string, string];
@@ -35,6 +37,7 @@ const DataRange: DateFormat = {
 export interface TimeAgoOptions {
     format?: UseTimeAgoFormat;
     relativeDate?: IDate;
+    name?: string;
 }
 
 export interface UseTimeAgoOptions extends TimeAgoOptions {
@@ -83,5 +86,12 @@ function format(date: IDate, localeName?: string, options?: TimeAgoOptions) {
 export function useTimeAgo(time: IDate, options: UseTimeAgoOptions = {}) {
     const { updateDelay = 3000 } = options;
     const [isActive, controls] = useInterval(updateDelay);
-    return [format(time), { isActive, ...controls }] as const;
+    const [timeAgo, setTimeAgo] = useState('');
+    useMount(() => {
+        if (options.format) {
+            register('', options.format);
+        }
+        setTimeAgo(format(time, options.name));
+    });
+    return [timeAgo, { isActive, ...controls }] as const;
 }

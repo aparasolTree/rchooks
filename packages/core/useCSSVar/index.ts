@@ -1,6 +1,6 @@
 import React, { CSSProperties, useCallback, useEffect, useRef } from 'react';
 import { useSetState } from '../useSetState';
-import { hyphenate } from '@rc-hook/shared';
+import { hyphenate } from '@r-hooks/shared';
 
 export type Props<P extends string | number | symbol> = Partial<Record<P, string>>;
 

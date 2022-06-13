@@ -1,4 +1,4 @@
-import { Fn } from '@rc-hook/shared';
+import { Fn } from '@r-hooks/shared';
 
 export const importScriptsParse = (importScripts: string[]) => {
     return `importScripts(${importScripts.map((importScript) => `'${importScript}'`).join(', ')})`;

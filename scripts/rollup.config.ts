@@ -8,17 +8,17 @@ const configs: RollupOptions[] = [];
 
 for (const { globals, name, external, iife } of packages) {
     const iifeGlobals = {
-        '@rc-hook/shared': 'RCHook',
-        '@rc-hook/core': 'RCHook',
+        '@r-hook/shared': 'RHooks',
+        '@r-hook/core': 'RHooks',
         ...(globals || {}),
     };
 
-    const iifeName = 'RCHook';
+    const iifeName = 'RHook';
     const functionName = ['index'];
 
     for (const fn of functionName) {
         const input =
-            fn === 'index' ? `packages/${name}/index.ts` : `packages/${name}/${fn}/idnex.ts`;
+            fn === 'index' ? `packages/${name}/index.ts` : `packages/${name}/${fn}/index.ts`;
         const output: OutputOptions[] = [
             {
                 file: `packages/${name}/dist/${fn}.cjs.js`,

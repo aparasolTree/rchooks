@@ -1,26 +1,37 @@
 {
     "name": "@r-hooks/shared",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "react hook shared",
     "scripts": {},
     "keywords": [
         "react",
-        "rc-hook",
+        "r-hook",
         "utils"
     ],
-    "author": "aParasolTree<https://www.github.com/aParasolTree>",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/aparasolTree/rc-hooks.git",
-        "directory": "pagekages/shared"
+        "url": "git+https://github.com/aparasolTree/r-hooks.git",
+        "directory": "package/shared"
     },
     "bugs": {
-        "url": "https://github.com/aparasolTree/rc-hooks/issues"
+        "url": "https://github.com/aparasolTree/r-hooks/issues"
     },
     "peerDependencies": {
         "react": "^16.8.0  || ^17.0.0 || ^18.0.0",
         "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
-    }
+    },
+    "exports": {
+        ".": {
+            "types": "./index.d.ts",
+            "import": "./index.mjs",
+            "require": "./index.cjs"
+        },
+        "./*": "./*"
+    },
+    "main": "./index.cjs",
+    "module": "./index.mjs",
+    "unpkg": "./index.iife.min.js",
+    "types": "./index.d.ts",
+    "author": "aParasolTree<https://www.github.com/aParasolTree>"
 }

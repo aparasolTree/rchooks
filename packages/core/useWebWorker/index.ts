@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { isBrowser } from '@rc-hook/shared';
+import { isBrowser } from '@r-hooks/shared';
 import { useLatest } from '../useLatest';
 
 export interface useWebWorkerOptions extends WorkerOptions {
