@@ -2,7 +2,7 @@
 
 监听 `window` 上的 `blur`、`focus`， 返回 `document.activeElement`
 
-## Usage
+## 使用
 
 ```tsx
 import React from 'react';

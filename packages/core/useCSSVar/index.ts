@@ -16,7 +16,7 @@ export function useCSSVar<P extends keyof CSSProperties>(
             _setVariables((variables) => {
                 let property = typeof props === 'function' ? props(variables) : props;
                 return Object.fromEntries(
-                    Object.entries(property).map(([key, val]) => [hyphenate(key), val])
+                    Object.entries(property).map(([key, val]) => [key, val])
                 ) as Props<P>;
             });
         },
@@ -29,7 +29,7 @@ export function useCSSVar<P extends keyof CSSProperties>(
             props.forEach((prop) => {
                 const normalized = hyphenate(prop);
                 const value = getComputedStyle.getPropertyValue(normalized);
-                setVariables((props) => ({ ...props, [normalized]: value }));
+                setVariables((props) => ({ ...props, [prop]: value }));
             });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

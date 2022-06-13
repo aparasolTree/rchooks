@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { useTimeoutFn } from '../useTimeoutFn';
 
 export interface UseClipboardOptions<S> {
-    source?: S;
+    delaultValue?: S;
     copiedDuring?: number;
 }
 
@@ -23,17 +23,17 @@ export function useClipboard(
 export function useClipboard(
     options: UseClipboardOptions<string | undefined> = {}
 ): [string, UseClipboardReturn<boolean>] {
-    const { copiedDuring = 1600, source } = options;
+    const { copiedDuring = 1600, delaultValue = '' } = options;
     const navigator = defaultNavigator;
 
     const isSupported = !!(navigator && navigator.clipboard);
-    const [text, setText] = useState<string>('');
+    const [text, setText] = useState<string>(delaultValue);
     const [copied, setCopied] = useState<boolean>(false);
 
     const [, { start }] = useTimeoutFn(() => setCopied(false), copiedDuring);
 
     const copy = useCallback(
-        async (value: string | undefined = source) => {
+        async (value: string | undefined = delaultValue) => {
             if (isSupported && value != null) {
                 await navigator.clipboard.writeText(value);
                 setText(value);
@@ -41,7 +41,7 @@ export function useClipboard(
                 start();
             }
         },
-        [isSupported, navigator?.clipboard, source, start]
+        [isSupported, navigator?.clipboard, delaultValue, start]
     );
 
     const read = useCallback(() => {

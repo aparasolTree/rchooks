@@ -6,21 +6,21 @@ interface CookieAction {
     deleteCookie: () => void;
 }
 
-export default function useCookie(cookieName: string): [string | null, CookieAction] {
-    const [cookie, setCookie] = useState<string | null>(() => Cookies.get(cookieName) || null);
+export default function useCookie(cookieKey: string): [string | null, CookieAction] {
+    const [cookie, setCookie] = useState<string | null>(() => Cookies.get(cookieKey) || null);
 
     const actions = useMemo(() => {
         return {
             deleteCookie: () => {
-                Cookies.remove(cookieName);
+                Cookies.remove(cookieKey);
                 setCookie(null);
             },
             updateCookie: (newValue: string, options?: CookieOptions) => {
-                Cookies.set(cookieName, newValue, options);
+                Cookies.set(cookieKey, newValue, options);
                 setCookie(newValue);
             },
         };
-    }, [cookieName]);
+    }, [cookieKey]);
 
     return [cookie, actions];
 }

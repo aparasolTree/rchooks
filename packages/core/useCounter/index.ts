@@ -14,10 +14,15 @@ export function useCounter(initialValue = 0, options: UseCounterOptions = {}) {
         const inc = (offset = 1) => setCount((count) => clamp(count + offset, min, max));
         const dec = (offset = 1) => setCount((count) => clamp(count - offset, min, max));
         const set = (value: number) => setCount(value);
-        const reset = () => setCount(initialValue);
 
-        return { inc, set, dec, reset };
-    }, [max, min, initialValue]);
+        return { inc, set, dec };
+    }, [max, min]);
 
-    return [count, actions] as const;
+    return [
+        count,
+        {
+            reset: () => setCount(initialValue),
+            ...actions,
+        },
+    ] as const;
 }
