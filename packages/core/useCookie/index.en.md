@@ -20,14 +20,31 @@ const Demo: React.FC = () => {
         </div>
     );
 }
-
-export default Demo;
 ```
 
 ## Reference
 
 ```tsx
-const [cookie, { deleteCookie, updateCookie }] = useCookie('r-hooks');
+export interface CookieOptions {
+    maxAge?: number;
+    signed?: boolean;
+    expires?: Date | string | number;
+    httpOnly?: boolean;
+    path?: string;
+    domain?: string;
+    secure?: boolean;
+    sameSite?: boolean | 'lax' | 'strict' | 'none';
+}
+
+interface CookieAction {
+    updateCookie: (newValue: string, options?: CookieOptions) => void;
+    deleteCookie: () => void;
+}
+
+const [cookie, {
+    deleteCookie,
+    updateCookie
+}] = useCookie(cookieKey: string): [string, CookieAction];
 ```
 
 ### Return

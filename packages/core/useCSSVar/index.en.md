@@ -40,7 +40,17 @@ const Demo: React.FC = () => {
 ## Reference
 
 ```tsx
-const [css, { setVariables: setCSS }] = useCSSVar(divRef, ['backgroundColor']);
+type UseCSSVarReturn = readonly [
+    Partial<Record<P, string>>,
+    {
+        readonly setVariables: (props: Partial<Record<P, string>> | ((prevProps: Props<P>) => Props<P>)) => void;
+    }
+];
+
+const [css, { setVariables: setCSS }] = useCSSVar<P extends keyof CSSProperties>(
+    target: React.RefObject<HTMLElement>,
+    props: Array<P>
+): UseCSSVarReturn
 ```
 
 ### Return

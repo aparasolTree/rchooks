@@ -22,14 +22,29 @@ const Demo: React.FC = () => {
         </div>
     );
 }
-
-export default Demo;
 ```
 
 ## Reference
 
 ```tsx
-const [count, { inc, dec, set, reset }] = useCounter(0);
+export interface UseCounterOptions {
+    min?: number;
+    max?: number;
+}
+
+type UseCounterReturn = [number, {
+    readonly inc: (offset?: number) => void;
+    readonly set: (value: number) => void;
+    readonly dec: (offset?: number) => void;
+    readonly reset: () => void;
+}];
+
+const [count, {
+    inc,
+    dec,
+    set,
+    reset
+}] = useCounter(initialValue: number, options: UseCounterOptions): UseCounterReturn;
 ```
 
 ### 返回值

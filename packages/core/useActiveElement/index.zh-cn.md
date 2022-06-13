@@ -14,7 +14,4 @@ const Demo: React.FC = () => {
         <div>当前活跃的元素是：{activeElement}</div>
     );
 }
-
-export default Demo;
-
 ```

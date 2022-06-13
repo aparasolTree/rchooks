@@ -25,18 +25,29 @@ const Demo: React.FC = () => {
         </div>
     );
 }
-
-export default Demo;
-
 ```
 
 ## 参考
 
 ```tsx
-const [text, { isSupported, read, write, copied }] = useClipboard({
-    defaultValue: 'r-hooks', copiedDuring: 1000
-});
+export interface UseClipboardOptions<S> {
+    delaultValue?: S;
+    copiedDuring?: number;
+}
 
+const [text, {
+    isSupported,
+    read,
+    write,
+    copied
+}] = useClipboard<S>(options: UseClipboardOptions<S>): UseClipboardReturn<boolean>;
+
+export interface UseClipboardReturn<C> {
+    isSupported: boolean;
+    copied?: boolean;
+    copy: C extends true ? (text?: string) => Promise<void> : (text: string) => Promise<void>;
+    read: () => void;
+}
 ```
 ### 返回值
 - `text`: 拷贝到剪切板的值或读取到剪切板的值

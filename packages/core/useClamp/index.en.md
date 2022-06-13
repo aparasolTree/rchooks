@@ -16,7 +16,9 @@ const Demo: React.FC = () => {
         </button>
     );
 }
+```
 
-export default Demo;
-
+## Reference
+```tsx
+const [count, setCount] = useClamp(current: number, min: number, max: number);
 ```

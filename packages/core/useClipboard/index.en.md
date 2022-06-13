@@ -25,18 +25,29 @@ const Demo: React.FC = () => {
         </div>
     );
 }
-
-export default Demo;
-
 ```
 
 ## Reference
 
 ```tsx
-const [text, { isSupported, read, write, copied }] = useClipboard({
-    defaultValue: 'r-hooks', copiedDuring: 1000
-});
+export interface UseClipboardOptions<S> {
+    delaultValue?: S;
+    copiedDuring?: number;
+}
 
+const [text, {
+    isSupported,
+    read,
+    write,
+    copied
+}] = useClipboard<S>(options: UseClipboardOptions<S>): UseClipboardReturn<boolean>;
+
+export interface UseClipboardReturn<C> {
+    isSupported: boolean;
+    copied?: boolean;
+    copy: C extends true ? (text?: string) => Promise<void> : (text: string) => Promise<void>;
+    read: () => void;
+}
 ```
 ### return
 - `text`: Value copied to clipboard or read from clipboard

@@ -17,7 +17,4 @@ const Demo: React.FC = () => {
         </div>
     );
 }
-
-export default Demo;
-
 ```
