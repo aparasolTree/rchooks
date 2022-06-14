@@ -5,7 +5,7 @@ import fs from 'fs-extra';
 
 (async function main() {
     execSync('npm run build:rollup', { stdio: 'inherit' });
-    let command = 'npm publish --access=public';
+    let command = 'npm publish --access public';
     for (const { name } of packages) {
         const packageJSON = await fs.readJSON(
             path.join(__dirname, '../packages', name!, 'package.json')

@@ -1,5 +1,5 @@
 import { RefObject, useState } from 'react';
-import type { Size } from '@r-hooks/shared';
+import type { Size } from '@rchooks/shared';
 import { useResizeObserver } from '../useResizeObserver';
 
 export function useElementSize(

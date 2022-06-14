@@ -1,4 +1,4 @@
-import { Fn, isBrowser } from '@r-hooks/shared';
+import { Fn, isBrowser } from '@rchooks/shared';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLatest } from '../useLatest';
 import { useUnmount } from '../useUnmount';

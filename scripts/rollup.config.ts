@@ -8,12 +8,12 @@ const configs: RollupOptions[] = [];
 
 for (const { globals, name, external, iife } of packages) {
     const iifeGlobals = {
-        '@r-hook/shared': 'RHooks',
-        '@r-hook/core': 'RHooks',
+        '@rchooks/shared': 'RCHooks',
+        '@rchooks/core': 'RCHooks',
         ...(globals || {}),
     };
 
-    const iifeName = 'RHook';
+    const iifeName = 'RCHook';
     const functionName = ['index'];
 
     for (const fn of functionName) {
@@ -68,7 +68,7 @@ for (const { globals, name, external, iife } of packages) {
                     },
                 }),
             ],
-            external: ['@rc-hook/shared', ...(external || [])],
+            external: ['@rchooks/shared', ...(external || [])],
         });
 
         configs.push({
@@ -78,7 +78,7 @@ for (const { globals, name, external, iife } of packages) {
                 format: 'es',
             },
             plugins: [dts()],
-            external: ['@rc-hook/shared', ...(external || [])],
+            external: ['@rchooks/shared', ...(external || [])],
         });
     }
 }

@@ -26,16 +26,16 @@
         "sourceMap": false,
         "resolveJsonModule": true,
         "paths": {
-            "@r-hooks/core": [
+            "@rchooks/core": [
                 "./packages/core/index.ts"
             ],
-            "@r-hooks/core/*": [
+            "@rchooks/core/*": [
                 "./packages/core/*"
             ],
-            "@r-hooks/shared": [
+            "@rchooks/shared": [
                 "./packages/shared/index.ts"
             ],
-            "@r-hooks/shared/*": [
+            "@rchooks/shared/*": [
                 "./packages/shared/*"
             ]
         },

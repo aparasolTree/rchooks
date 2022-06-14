@@ -1,4 +1,4 @@
-import { clamp } from '@r-hooks/shared';
+import { clamp } from '@rchooks/shared';
 import { useCallback, useState } from 'react';
 
 export function useClamp(initialValue: number, min: number, max: number) {

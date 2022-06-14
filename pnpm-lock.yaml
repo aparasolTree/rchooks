@@ -69,9 +69,9 @@ importers:
 
   packages/core:
     specifiers:
-      '@r-hooks/shared': workspace:^1.0.0
+      '@rchooks/shared': workspace:^1.0.0
     dependencies:
-      '@r-hooks/shared': link:../shared
+      '@rchooks/shared': link:../shared
 
 packages:
 

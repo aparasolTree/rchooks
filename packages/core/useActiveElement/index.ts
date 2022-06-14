@@ -1,4 +1,4 @@
-import { isBrowser } from '@r-hooks/shared';
+import { isBrowser } from '@rchooks/shared';
 import { useEffect, useState } from 'react';
 
 export function useActiveElement() {

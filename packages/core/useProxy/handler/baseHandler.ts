@@ -1,4 +1,4 @@
-import { Fn, hasOwn } from '@r-hooks/shared';
+import { Fn, hasOwn } from '@rchooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 function createGetter(update: Fn, options?: ProxyOptions) {

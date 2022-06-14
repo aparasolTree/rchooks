@@ -1,5 +1,5 @@
 {
-    "name": "@r-hooks/shared",
+    "name": "@rchooks/shared",
     "version": "1.0.0",
     "description": "react hook shared",
     "scripts": {},
@@ -11,11 +11,11 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/aparasolTree/r-hooks.git",
+        "url": "git+https://github.com/aparasolTree/rchooks.git",
         "directory": "package/shared"
     },
     "bugs": {
-        "url": "https://github.com/aparasolTree/r-hooks/issues"
+        "url": "https://github.com/aparasolTree/rchooks/issues"
     },
     "peerDependencies": {
         "react": "^16.8.0  || ^17.0.0 || ^18.0.0",

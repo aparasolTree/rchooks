@@ -1,5 +1,5 @@
 {
-    "name": "@r-hooks/core",
+    "name": "@rchooks/core",
     "version": "1.0.0",
     "description": "commection of react hook",
     "keywords": [
@@ -10,18 +10,18 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/aparasolTree/r-hooks.git",
+        "url": "git+https://github.com/aparasolTree/rchooks.git",
         "directory": "packages/core"
     },
     "bugs": {
-        "url": "https://github.com/aparasolTree/r-hooks/issues"
+        "url": "https://github.com/aparasolTree/rchooks/issues"
     },
     "peerDependencies": {
         "react": "^16.8.0  || ^17.0.0 || ^18.0.0",
         "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
     },
     "dependencies": {
-        "@r-hooks/shared": "workspace:*"
+        "@rchooks/shared": "workspace:*"
     },
     "exports": {
         ".": {

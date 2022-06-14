@@ -1,4 +1,4 @@
-import { Fn } from '@r-hooks/shared';
+import { Fn } from '@rchooks/shared';
 import { useEffect } from 'react';
 import { useLatest } from '../useLatest';
 

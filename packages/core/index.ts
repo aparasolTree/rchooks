@@ -47,4 +47,4 @@ export * from './useWebWorker';
 export * from './useWebWorkerFn';
 export * from './useWindowScroll';
 export * from './useWindowSize';
-export * from '@r-hooks/shared';
+export * from '@rchooks/shared';

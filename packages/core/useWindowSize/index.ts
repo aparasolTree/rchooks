@@ -1,5 +1,5 @@
-import type { Size } from '@r-hooks/shared';
-import { isBrowser } from '@r-hooks/shared';
+import type { Size } from '@rchooks/shared';
+import { isBrowser } from '@rchooks/shared';
 import { useEffect, useState } from 'react';
 
 export function useWindowSize() {

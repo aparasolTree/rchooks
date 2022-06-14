@@ -1,4 +1,4 @@
-import { isBrowser } from '@r-hooks/shared';
+import { isBrowser } from '@rchooks/shared';
 import { RefObject, useCallback, useState } from 'react';
 import { useEventListener } from '../useEventListener';
 import { useMount } from '../useMount';

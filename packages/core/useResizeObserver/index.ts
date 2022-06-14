@@ -1,4 +1,4 @@
-import { isBrowser, noop } from '@r-hooks/shared';
+import { isBrowser, noop } from '@rchooks/shared';
 import React, { useEffect, useRef } from 'react';
 import { useLatest } from '../useLatest';
 

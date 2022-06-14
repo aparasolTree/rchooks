@@ -1,4 +1,4 @@
-import { defaultNavigator } from '@r-hooks/shared';
+import { defaultNavigator } from '@rchooks/shared';
 import { useCallback, useState } from 'react';
 import { useTimeoutFn } from '../useTimeoutFn';
 

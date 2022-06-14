@@ -1,4 +1,4 @@
-import { Fn, getRawType } from '@r-hooks/shared';
+import { Fn, getRawType } from '@rchooks/shared';
 import baseHandler from './baseHandler';
 import { collectionHandler } from './collectionHandler';
 

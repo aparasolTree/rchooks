@@ -1,4 +1,4 @@
-import { Fn } from '@r-hooks/shared';
+import { Fn } from '@rchooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 export type CollectionType = InterableCollections | WeakCollection;

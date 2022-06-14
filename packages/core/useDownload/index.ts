@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
 import { useLatest } from '../useLatest';
-import { objectPick } from '@r-hooks/shared';
+import { objectPick } from '@rchooks/shared';
 
 export interface UseDownloadOptions {
     immediate?: boolean;

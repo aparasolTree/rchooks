@@ -1,4 +1,4 @@
-import { isBrowser } from '@r-hooks/shared';
+import { isBrowser } from '@rchooks/shared';
 import { useState } from 'react';
 import { useUpdateEffect } from '../useUpdateEffect';
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { debounce, DebounceOptions, Fn } from '@r-hooks/shared';
+import { debounce, DebounceOptions, Fn } from '@rchooks/shared';
 import { useLatest } from '../useLatest';
 import { useUnmount } from '../useUnmount';
 

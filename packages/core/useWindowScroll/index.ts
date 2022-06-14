@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { isBrowser } from '@r-hooks/shared';
+import { isBrowser } from '@rchooks/shared';
 
 export interface Offset {
     x?: number;
