@@ -6,7 +6,7 @@ Limit the range of modified values
 
 ```tsx
 import React from 'react';
-import { useClamp } from '@r-hooks/core';
+import { useClamp } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [count, setCount] = useClamp(0, 0, 1000); // Varies between 0 - 1000

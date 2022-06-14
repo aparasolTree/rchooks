@@ -6,7 +6,7 @@
 
 ```tsx
 import React, { useState } from 'react';
-import { useMount } from '@r-hooks/core';
+import { useMount } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [count, setCount] = useState(0);

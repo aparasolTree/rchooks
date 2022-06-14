@@ -6,7 +6,7 @@ Execute a callback function regularly
 
 ```tsx
 import React, { useState } from 'react';
-import { useIntervalFn } from '@r-hooks/core';
+import { useIntervalFn } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 })

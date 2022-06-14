@@ -5,7 +5,7 @@ Get element boundary data
 ## Usage
 ```tsx
 import React, { useRef } from 'react';
-import { useElementBounding } from '@r-hooks/core';
+import { useElementBounding } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const ref = useRef<HTMLTextAreaElement>(null);

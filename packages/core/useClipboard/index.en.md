@@ -6,7 +6,7 @@ Copy text to clipboard
 
 ```tsx
 import React, { useState } from 'react';
-import { useClipboard } from '@r-hooks/core';
+import { useClipboard } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [value, setValue] = useState('');

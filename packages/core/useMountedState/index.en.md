@@ -6,7 +6,7 @@ Get the state of the component after it is mounted
 
 ```tsx
 import React, { useState } from 'react';
-import { useMountedState } from '@r-hooks/core';
+import { useMountedState } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [count, setCount] = useState(0);

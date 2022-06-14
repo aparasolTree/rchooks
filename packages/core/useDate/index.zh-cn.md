@@ -6,7 +6,7 @@
 
 ```tsx
 import React from 'react';
-import { useDate } from '@r-hooks/core';
+import { useDate } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const date = useDate(new Date(), 'YYYY/MM/DD HH:mm:ss SSS');

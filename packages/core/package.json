@@ -1,6 +1,6 @@
 {
     "name": "@rchooks/core",
-    "version": "1.0.2",
+    "version": "1.0.6",
     "description": "commection of react hook",
     "keywords": [
         "react",
@@ -21,7 +21,7 @@
         "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
     },
     "dependencies": {
-        "@rchooks/shared": "workspace:1.0.2"
+        "@rchooks/shared": "workspace:*"
     },
     "exports": {
         ".": {

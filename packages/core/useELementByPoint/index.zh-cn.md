@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React from 'react';
-import { useElementByPoint } from '@r-hooks/core';
+import { useElementByPoint } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [element, stop] = useElementByPoint();

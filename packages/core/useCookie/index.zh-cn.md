@@ -6,7 +6,7 @@
 
 ```tsx
 import React from 'react';
-import { useCookie } from '@r-hooks/core'
+import { useCookie } from '@rchooks/core'
 
 const Demo: React.FC = () => {
     const [cookie, { deleteCookie, updateCookie }] = useCookie('r-hooks');

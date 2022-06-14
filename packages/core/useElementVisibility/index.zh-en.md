@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React, { useRef } from 'react';
-import { useElementVisibility } from '@r-hooks/core';
+import { useElementVisibility } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);

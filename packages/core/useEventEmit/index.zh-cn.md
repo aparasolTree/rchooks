@@ -6,7 +6,7 @@
 
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { useEventEmit } from '@r-hooks/core';
+import { useEventEmit } from '@rchooks/core';
 
 const Demo1: React.FC = () => {
     const reactEvent = useEventEmit('react');

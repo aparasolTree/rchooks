@@ -6,7 +6,7 @@ debounce
 
 ```tsx
 import React from 'react';
-import { useDebounceFn } from '@r-hooks';
+import { useDebounceFn } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [count, setCount] = useState(0)

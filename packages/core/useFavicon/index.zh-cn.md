@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { useFavicon } from '@r-hooks/core';
+import { useFavicon } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [href, setHref] = useState('');

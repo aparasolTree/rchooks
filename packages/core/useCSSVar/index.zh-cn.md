@@ -6,7 +6,7 @@
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
-import { useCSSVar } from '@r-hooks/core';
+import { useCSSVar } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const divRef = useRef<HTMLDivElement>(null);

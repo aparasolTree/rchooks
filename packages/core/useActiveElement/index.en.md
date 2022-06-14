@@ -7,7 +7,7 @@ value of `document.activeElement`
 
 ```tsx
 import React from 'react';
-import { useActiveElement } from "@r-hooks/core";
+import { useActiveElement } from "@rchooks/core";
 
 const Demo: React.FC = () => {
     const activeElement = useActiveElement();

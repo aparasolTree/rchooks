@@ -6,7 +6,7 @@ Force components to update regularly
 
 ```tsx
 import React from 'react';
-import { useInterval } from '@r-hooks/core';
+import { useInterval } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [isActive, { clear }] = useInterval(1000);

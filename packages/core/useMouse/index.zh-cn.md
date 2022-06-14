@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React from 'react';
-import { useMouse } from '@r-hooks/core';
+import { useMouse } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const { x, y } = useMouse();

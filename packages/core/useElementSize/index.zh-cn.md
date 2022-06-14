@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React, { useRef } from 'react';
-import { useElementSize } from '@r-hooks/core';
+import { useElementSize } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const ref = useRef<HTMLTextAreaElement>(null);

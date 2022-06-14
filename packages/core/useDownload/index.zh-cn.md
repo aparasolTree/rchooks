@@ -6,7 +6,7 @@
 
 ```tsx
 import React from 'react';
-import { useDownload } from '@r-hooks/core';
+import { useDownload } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const { total, loaded, execute } = useDownload('/public/姜子牙.mp4', { immediate: false });

@@ -6,7 +6,7 @@
 
 ```tsx
 import React from 'react';
-import { useDateNow } from '@r-hooks/core';
+import { useDateNow } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [now, { isActive, start, cancel }] = useDateNow({ immediate: true });

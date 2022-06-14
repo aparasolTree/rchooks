@@ -6,7 +6,7 @@ Use LocalStorage to store data
 
 ```tsx
 import React from 'react';
-import { useLocalStorage } from '@r-hooks/core';
+import { useLocalStorage } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [color, { write }] = useLocalStorage<string>('color', 'red');

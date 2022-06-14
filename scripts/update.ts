@@ -6,7 +6,7 @@ const packages_dir = path.resolve(__dirname, '../packages');
 
 updatePackageJSON();
 
-async function updatePackageJSON() {
+export async function updatePackageJSON() {
     const { version, author: xl_author } = await fs.readJSON('package.json');
 
     for (const { name, description, author } of packages) {
@@ -38,14 +38,6 @@ async function updatePackageJSON() {
             './*': './*',
             ...packageJSON.exports,
         };
-        if (packageJSON.dependencies) {
-            for (let [dep, w] of Object.entries(packageJSON.dependencies)) {
-                if (/^@rchooks\//.test(dep)) {
-                    w = (w as string).replace('*', version);
-                }
-                packageJSON.dependencies[dep] = w;
-            }
-        }
 
         await fs.writeJSON(packageJSON_path, packageJSON, { spaces: 4 });
     }

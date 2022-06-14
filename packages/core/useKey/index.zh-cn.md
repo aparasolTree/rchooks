@@ -6,7 +6,7 @@
 
 ```tsx
 import React, { useState } from 'react';
-import { useKey } from '@r-hooks/core';
+import { useKey } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [color, setColor] = useState('red');

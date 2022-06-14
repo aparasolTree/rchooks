@@ -5,7 +5,7 @@ Checks if the element is inside the window
 ## Usage
 ```tsx
 import React, { useRef } from 'react';
-import { useElementVisibility } from '@r-hooks/core';
+import { useElementVisibility } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);

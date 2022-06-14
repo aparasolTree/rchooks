@@ -6,7 +6,7 @@
 
 ```tsx
 import React from 'react';
-import { useMediaQuery } from '@r-hooks/core';
+import { useMediaQuery } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const isDark = useMediaQuery('prefers-color-scheme');

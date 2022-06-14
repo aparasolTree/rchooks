@@ -7,7 +7,7 @@
 
 ```tsx
 import React from 'react';
-import { useProxy } from '@r-hooks/core';
+import { useProxy } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const state = useProxy({ count: 1, user: { name: 'xl', age: 19 }, like: ['react'] }, {

@@ -5,7 +5,7 @@
 ## 用法
 ```tsx
 import React, { useRef, useState } from 'react';
-import { useEventListener } from '@r-hooks/core';
+import { useEventListener } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);

@@ -6,7 +6,7 @@ Reactive numerical changes
 
 ```tsx
 import React from 'react';
-import { useCounter } from '@r-hooks/core';
+import { useCounter } from '@rchooks/core';
 
 const Demo: React.FC = () => {
     const [count, { inc, dec, set, reset }] = useCounter(0);
