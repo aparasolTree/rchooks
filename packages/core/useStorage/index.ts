@@ -38,12 +38,6 @@ export function useStorage<T>(
     stroage?: LikeStorage,
     options?: UseStorageOptions<T>
 ): [T, { write: (val: T) => void; remove: () => void }];
-export function useStorage<T = unknown>(
-    key: string,
-    initialValue: null,
-    stroage?: LikeStorage,
-    options?: UseStorageOptions<T>
-): [T, { write: (val: T) => void; remove: () => void }];
 
 export function useStorage<T extends string | number | boolean | null | object>(
     key: string,

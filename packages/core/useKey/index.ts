@@ -6,7 +6,7 @@ export type KeyFilter = string[];
 export type KeyHandler = (event: KeyboardEvent) => void;
 export interface UseKeyOptions<T extends EventTarget> {
     event?: 'keypress' | 'keydown' | 'keyup';
-    target?: React.MutableRefObject<T>;
+    target?: React.RefObject<T>;
     eventOptions?: boolean | AddEventListenerOptions;
     modifier?: ('alt' | 'ctrl' | 'shift' | 'meta')[];
 }
