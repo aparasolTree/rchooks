@@ -1,6 +1,6 @@
 {
     "name": "@rchooks/core",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "commection of react hook",
     "keywords": [
         "react",
@@ -26,13 +26,13 @@
     "exports": {
         ".": {
             "types": "./index.d.ts",
-            "import": "./index.mjs",
-            "require": "./index.cjs"
+            "import": "./index.esm.js",
+            "require": "./index.cjs.js"
         },
         "./*": "./*"
     },
-    "main": "./index.cjs",
-    "module": "./index.mjs",
+    "main": "./index.cjs.js",
+    "module": "./index.esm.js",
     "unpkg": "./index.iife.min.js",
     "types": "./index.d.ts",
     "author": "aParasolTree<https://www.github.com/aParasolTree>"
