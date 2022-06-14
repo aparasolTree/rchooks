@@ -1,6 +1,6 @@
 # useMediaQuery
 
-使用媒体查询
+Use media queries
 
 ## 用法
 
@@ -20,7 +20,7 @@ const Demo: React.FC = () => {
 
 ```tsx
 const matches = useMediaQuery(
-    query: string, // 查询字符串
-    defaultState?: boolean // 默认值
+    query: string, // query string
+    defaultState?: boolean // default
 ): boolean
 ```

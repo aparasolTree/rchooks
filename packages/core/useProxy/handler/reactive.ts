@@ -10,9 +10,9 @@ export interface ProxyOptions {
 const reactiveMap = new Map();
 
 enum TargetType {
-    INVALID = 0,
-    COMMON = 1,
-    COLLECTION = 2,
+    INVALID = 'invalid',
+    COMMON = 'common',
+    COLLECTION = 'collection',
 }
 
 function targetTypeMap(rawType: string) {
