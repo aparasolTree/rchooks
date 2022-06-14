@@ -14,7 +14,8 @@
         "ts:check": "tsc --noEmit",
         "clean": "rimraf dist packages/*/dist",
         "build:rollup": "rollup -c",
-        "publish": "esno scripts/publish.ts"
+        "update": "esno scripts/update",
+        "publish": "pnpm run update && esno scripts/publish.ts"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",

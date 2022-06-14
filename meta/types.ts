@@ -1,5 +1,5 @@
 export interface PackageMetaInfo {
-    name?: string;
+    name: string;
     display?: string;
     addon?: boolean;
     author?: string;
