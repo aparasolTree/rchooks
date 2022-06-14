@@ -29,5 +29,5 @@ export function useResizeObserver(
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [callbackRef, isSupported, box, target.current]);
 
-    return [isSupported, clearObserver] as const;
+    return [isSupported, clearObserver.current] as const;
 }

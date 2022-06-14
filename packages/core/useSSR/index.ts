@@ -5,22 +5,22 @@ export enum Device {
 }
 
 const { Browser, Server, Native } = Device;
-const canUseDOM = !!(
+const canIUseDOM = !!(
     typeof window !== 'undefined' &&
     window.document &&
     window.document.createElement
 );
-const canUseNative = !!(typeof navigator !== 'undefined' && navigator.product === 'ReactNative');
-const device = canUseNative ? Native : canUseDOM ? Browser : Server;
+const canIUseNative = !!(typeof navigator !== 'undefined' && navigator.product === 'ReactNative');
+const device = canIUseNative ? Native : canIUseDOM ? Browser : Server;
 
 export interface UseSSRReturn {
     isBrowser: boolean;
     isServer: boolean;
     isNative: boolean;
     device: Device;
-    canUseWorker: boolean;
-    canUseEventListener: boolean;
-    canUseViewport: boolean;
+    canIUseWorker: boolean;
+    canIUseEventListener: boolean;
+    canIUseViewport: boolean;
 }
 
 const SSRObject: UseSSRReturn = {
@@ -28,13 +28,13 @@ const SSRObject: UseSSRReturn = {
     isServer: device === Server,
     isNative: device === Native,
     device,
-    canUseWorker: typeof Worker !== 'undefined',
-    canUseViewport: device === Browser && !!window.screen,
-    canUseEventListener: device === Browser && !!window.addEventListener,
+    canIUseWorker: typeof Worker !== 'undefined',
+    canIUseViewport: device === Browser && !!window.screen,
+    canIUseEventListener: device === Browser && !!window.addEventListener,
 };
 
 export const weAreServer = () => (SSRObject.isServer = true);
 
-export default function useSSR() {
+export function useSSR() {
     return SSRObject;
 }

@@ -1,6 +1,6 @@
 # useLocalStorage
 
-Use LocalStorage to store data
+Reactive LocalStorage
 
 ## Usage
 

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import guessSerializerType from './guessSerializerType';
-import { Seriaizer, StroageSerializers } from './serializers';
+import guessSerializerType from './utils/guessSerializerType';
+import { Seriaizer, StroageSerializers } from './utils/serializers';
 
 export interface LikeStorage {
     getItem: (key: string) => string | null;

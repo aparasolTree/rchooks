@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import type { CSSProperties } from 'react';
 import { useMount } from '../useMount';
 import { genRangeRandom, hyphenate, isBrowser } from '@rchooks/shared';
@@ -21,7 +21,6 @@ const normalizeStyle = (className: string, cssRules: CSSProperties, deps: string
     Object.entries(cssRules).forEach(([key, value]) => {
         if (deps.includes(key)) {
             style!.append(document.createTextNode(styleText + `${hyphenate(key)}: `));
-            console.log(styleText + `${hyphenate(key)}: `);
             styleText = '';
             depNodes[key] = document.createTextNode(`${value}`);
             styleText += ';';
@@ -56,7 +55,6 @@ export function useStyle(cssRules: CSSProperties, deps: string[] = []) {
                 depNodesRef.current[key].textContent = cssRules[key];
             }
         }
-        console.log(depNodesRef.current);
         prevCSSRules.current = cssRules;
     });
 

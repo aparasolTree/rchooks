@@ -1,6 +1,6 @@
 # useLocalStorage
 
-使用 LocalStorage 存储数据
+响应式 LocalStorage
 
 ## 用法
 
