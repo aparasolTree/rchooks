@@ -4,7 +4,7 @@ import { useUpdateEffect } from '../useUpdateEffect';
 
 const getInitialState = (query: string, defaultState?: boolean) => {
     if (defaultState !== undefined) return defaultState;
-    if (isBrowser) return window.matchMedia(query);
+    if (isBrowser) return window.matchMedia(query).matches;
     return false;
 };
 
