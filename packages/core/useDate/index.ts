@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 export type DateLike = Date | number | string | undefined;
 
 const PARSE_DATE_RE =
-    /^(\d{4})[-/]?(\d{1,2})[-/]?(\d{1,2})[-/]?\s*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/;
+    /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{1,2})\s*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/;
 
 const FORMAT_DATE = /Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|m{1,2}|s{1,2}|Z{1,2}|SSS/g;
 
