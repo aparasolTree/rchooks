@@ -1,8 +1,8 @@
 # useUpdateEffect
 
-忽略第一次调用的 `useEffect`。 参数与 useEffect 完全相同。
+The first call to `useEffect` is ignored. The parameters are exactly the same as useEffect.
 
-## 用法
+## Usage
 
 ```tsx
 import React from 'react';

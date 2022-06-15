@@ -19,9 +19,9 @@ export function useWindowScroll() {
         if (!isBrowser) return;
         const handler = () => {
             setScrollOffset((scrollOffset) => {
-                const { scrollX, screenY } = window;
-                return scrollOffset.x !== scrollX || scrollOffset.y !== screenY
-                    ? { x: scrollX, y: screenY }
+                const { scrollX, scrollY } = window;
+                return scrollOffset.x !== scrollX || scrollOffset.y !== scrollY
+                    ? { x: scrollX, y: scrollY }
                     : scrollOffset;
             });
         };
