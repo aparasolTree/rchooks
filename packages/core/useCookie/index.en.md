@@ -9,12 +9,12 @@ import React from 'react';
 import { useCookie } from '@rchooks/core'
 
 const Demo: React.FC = () => {
-    const [cookie, { deleteCookie, updateCookie }] = useCookie('r-hooks');
+    const [cookie, { deleteCookie, updateCookie }] = useCookie(['rchooks']);
     return (
         <div>
-            <div>{cookie}</div>
-            <button onClick={() => deleteCookie()}>Delete</button>
-            <button onClick={() => updateCookie('useCookie')}>
+            <div>{cookie['rchooks']}</div>
+            <button onClick={() => deleteCookie('rchooks')}>Delete</button>
+            <button onClick={() => updateCookie('rchooks', 'useCookie')}>
                 Update
             </button>
         </div>
@@ -36,21 +36,21 @@ export interface CookieOptions {
     sameSite?: boolean | 'lax' | 'strict' | 'none';
 }
 
-interface CookieAction {
-    updateCookie: (newValue: string, options?: CookieOptions) => void;
-    deleteCookie: () => void;
+interface CookieAction<T> {
+    updateCookie: (key: T, newValue: string, options?: CookieOptions) => void;
+    deleteCookie: (key?: T) => void;
 }
 
 const [cookie, {
     deleteCookie,
     updateCookie
-}] = useCookie(cookieKey: string): [string, CookieAction];
+}] = useCookie<T extends string>(cookieKeys: T[]): [Partial<Record<T, string>>, CookieAction<T>];
 ```
 
 ### Return
 - `cookie`: read `cookie` value
-- `deleteCookie`: delete `cookie`
-- `updateCookie`: update `cookie`
+- `deleteCookie`: Delete Specify `cookie`, without passing parameters, delete all cookies found in the query
+- `updateCookie`: Update the specified `cookie` found
 
-### Params
-- `cookieName`: `cookie` key value to look up
+### Param
+- `cookieName`: Array of `cookie` key values to look for

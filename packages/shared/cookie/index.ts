@@ -16,13 +16,13 @@ const ObjectKeys = <Obj>(target: Obj): (keyof Obj)[] => {
 };
 
 export interface UseCookieReturn {
-    set: (name: string, value: string, attributes?: CookieOptions) => string;
-    get: (name: string) => string;
+    set: <T extends string>(name: T, value: string, attributes?: CookieOptions) => string;
+    get: <T extends string>(name: T[]) => Record<T, string>;
     remove: (name: string, attributes?: CookieOptions) => string | undefined;
 }
 
 function Init(defaultAttributes: CookieOptions): UseCookieReturn {
-    function setCookie(name: string, value: string, attributes: CookieOptions = {}) {
+    function setCookie<K extends string>(name: K, value: string, attributes: CookieOptions = {}) {
         if (!isBrowser) return;
 
         attributes = Object.assign({}, defaultAttributes, attributes);
@@ -48,21 +48,24 @@ function Init(defaultAttributes: CookieOptions): UseCookieReturn {
         )}${stringifiedAttribute}`);
     }
 
-    function getCookie(name: string) {
-        if (!isBrowser || !name) return;
+    function getCookie<K extends string>(keys: K[]) {
+        if (!isBrowser || !keys || !keys.length) return;
 
         const cookies = document.cookie ? document.cookie.split('; ') : [];
-        const result: Record<string, string> = {};
+        const result: Record<K, string> = Object.create(null);
+
         for (const cookie of cookies) {
             const [key, value] = cookie.split('=');
             try {
                 const found = decodeURIComponent(key);
-                result[found] = decodeURIComponent(value);
-                if (name === found) break;
+                if (keys.includes(found as any)) {
+                    result[found] = decodeURIComponent(value);
+                }
+                if (keys.length === Object.keys(result).length) break;
             } catch (error) {}
         }
 
-        return name ? result[name] : result;
+        return result;
     }
 
     return Object.create({
