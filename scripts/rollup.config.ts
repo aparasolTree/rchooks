@@ -13,7 +13,7 @@ for (const { globals, name, external, iife } of packages) {
         ...(globals || {}),
     };
 
-    const iifeName = 'RCHook';
+    const iifeName = 'RCHooks';
     const functionName = ['index'];
 
     for (const fn of functionName) {

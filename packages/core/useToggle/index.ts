@@ -8,24 +8,29 @@ export interface UseToggleOptions<Truth, False> {
 export function useToggle<Truth = true, False = false, T extends Truth | False = Truth | False>(
     initialValue: T,
     options?: UseToggleOptions<Truth, False>
-): [T, (...args: T[]) => void];
+): [T, (value?: T) => void];
 
 export function useToggle<Truth, False, T extends Truth | False = Truth | False>(
-    initialValue: T,
-    options: UseToggleOptions<Truth, False> = {}
-): [T, (...args: T[]) => void] {
+    initialValue?: T,
+    options?: UseToggleOptions<Truth, False>
+): [T, (value?: T) => void];
+
+export function useToggle(
+    initialValue: boolean = true,
+    options: UseToggleOptions<true, false> = {}
+) {
     const { truthValue = true, falseValue = false } = options;
-    const [state, setState] = useState<T>(initialValue);
+    const [state, setState] = useState(initialValue || false);
     const toggle = useCallback(
-        (...args: T[]) => {
-            if (args.length) {
-                setState(args[0]);
+        function (value?: boolean) {
+            if (arguments.length) {
+                setState(value!);
             } else {
-                setState((state) => (state === truthValue ? falseValue : truthValue) as T);
+                setState((state) => (state === truthValue ? falseValue : truthValue));
             }
         },
         [truthValue, falseValue]
     );
 
-    return [state, toggle];
+    return [state, toggle] as const;
 }
