@@ -44,5 +44,10 @@
         "packages",
         "playgrounds",
         "scripts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/**/*.md",
+        "**/dist",
     ]
 }
