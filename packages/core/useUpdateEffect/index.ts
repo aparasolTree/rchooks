@@ -1,12 +1,12 @@
 import type { EffectCallback, DependencyList } from 'react';
 import { useEffect } from 'react';
-import { useMountedState } from '../useMountedState';
+import { useFirstMountState } from '../useFirstMountState';
 
 export function useUpdateEffect(effectFn: EffectCallback, deps?: DependencyList) {
-    const isMouted = useMountedState();
+    const isFirst = useFirstMountState();
 
     useEffect(() => {
-        if (isMouted()) {
+        if (isFirst) {
             effectFn();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
