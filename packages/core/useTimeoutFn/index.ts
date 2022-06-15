@@ -1,32 +1,29 @@
 import { Fn } from '@rchooks/shared';
-import { useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useLatest } from '../useLatest';
 
 export function useTimeoutFn<F extends Fn>(fn: F, delay: number = 1500) {
-    const isReady = useRef<boolean>(false);
+    const ready = useRef<boolean>(false);
     const timerId = useRef<ReturnType<typeof setTimeout>>();
     const fnRef = useLatest(fn);
+    const isReady = useCallback(() => ready.current, []);
 
     const actions = useMemo(() => {
-        const resume = () => {
-            clear();
-            start();
-        };
-
         const clear = () => {
-            isReady.current = true;
+            ready.current = true;
             timerId.current && clearTimeout(timerId.current);
         };
 
         const start = () => {
             if (delay < 0) return;
-            isReady.current = false;
+            ready.current = false;
+            timerId.current && clearTimeout(timerId.current);
             timerId.current = setTimeout(() => {
-                isReady.current = true;
+                ready.current = true;
                 fnRef.current();
             }, delay);
         };
-        return { resume, clear, start };
+        return { clear, start };
     }, [delay, fnRef]);
 
     useEffect(() => {
@@ -34,5 +31,5 @@ export function useTimeoutFn<F extends Fn>(fn: F, delay: number = 1500) {
         return actions.clear;
     }, [delay, actions]);
 
-    return [isReady.current, actions] as const;
+    return [isReady, actions] as const;
 }
