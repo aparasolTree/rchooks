@@ -11,8 +11,8 @@ export function useCounter(initialValue = 0, options: UseCounterOptions = {}) {
     const { min = -Infinity, max = Infinity } = options;
 
     const actions = useMemo(() => {
-        const inc = (offset = 1) => setCount((count) => clamp(count + offset, min, max));
-        const dec = (offset = 1) => setCount((count) => clamp(count - offset, min, max));
+        const inc = (offset = 1) => setCount((count) => clamp(count + Math.abs(offset), min, max));
+        const dec = (offset = 1) => setCount((count) => clamp(count - Math.abs(offset), min, max));
         const set = (value: number) => setCount(value);
 
         return { inc, set, dec };
