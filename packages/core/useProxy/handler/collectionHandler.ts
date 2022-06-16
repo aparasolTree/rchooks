@@ -1,4 +1,4 @@
-import { deepCopy, Fn } from '@rchooks/shared';
+import { Fn } from '@rchooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 export type CollectionType = InterableCollections | WeakCollection;
@@ -16,19 +16,23 @@ const toRaw = <T>(target: T): T => {
 const wrap = (value: unknown, update: Fn, options?: ProxyOptions) =>
     typeof value === 'object' && value !== null ? reactive(value, update, options) : value;
 
+const shallowSymbol = Symbol('collectionHandler shallow');
+
 function collectionProxy(update: Fn, options?: ProxyOptions) {
     return {
         add(this: SetTypes, value: unknown) {
             value = toRaw(value);
-            if (options?.isReadonly) return;
+            if (options?.isReadonly) return true;
             const target = toRaw(this);
+            if (target[shallowSymbol]) return true;
             const result = target.add(value);
             return result;
         },
         delete(this: CollectionType, key: unknown) {
             key = toRaw(key);
-            if (options?.isReadonly) return;
+            if (options?.isReadonly) return true;
             const target = toRaw(this);
+            if (target[shallowSymbol]) return true;
             const hasKey = target.has(key);
             const result = target.delete(key);
             if (hasKey) {
@@ -43,9 +47,10 @@ function collectionProxy(update: Fn, options?: ProxyOptions) {
             if (hasKey) {
                 const result = target.get(key);
                 if (typeof result === 'object' && result !== null) {
-                    return options?.isShallow
-                        ? deepCopy(result)
-                        : reactive(result, update, options);
+                    if (options?.isShallow) {
+                        result[shallowSymbol] = true;
+                    }
+                    return reactive(result, update, options);
                 } else {
                     return result;
                 }
@@ -54,8 +59,9 @@ function collectionProxy(update: Fn, options?: ProxyOptions) {
         set(this: MapTypes, key: unknown, value: unknown) {
             key = toRaw(key);
             value = toRaw(value);
-            if (options?.isReadonly) return false;
+            if (options?.isReadonly) return true;
             const target = toRaw(this);
+            if (target[shallowSymbol]) return true;
             const oldValue = target.get(key);
             const hasKey = target.has(key);
             target.set(key, value);

@@ -53,8 +53,6 @@ export function reactive<T extends object>(source: T, update: Fn, options?: Prox
     if (existionProxy) return existionProxy;
 
     const proxy = createReactive(source, update, options);
-    const stringTag = proxy[Symbol.toStringTag];
-    proxy[Symbol.toStringTag] = 'Proxy ' + stringTag;
     reactiveMap.set(source, proxy);
     return proxy as T;
 }
