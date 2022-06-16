@@ -2,13 +2,17 @@ import { getRawType } from '../utils';
 
 const noCopy = ['string', 'number', 'boolean', 'symbol', 'function', 'bigint'];
 
-export function deepCopy<T>(target: T, map = new Map()) {
+export function deepCopy<T>(target: T, map = new Map()): T {
     if (map.get(target)) return target;
     if (noCopy.includes(getRawType(target))) return target;
-    if (target instanceof Map) return new Map(target.entries());
-    if (target instanceof Set) return new Set(target.values());
-    if (target instanceof Date) return new Date(target.toString());
-    if (target instanceof RegExp) return new RegExp(target.source, target.flags);
+    if (target instanceof Map)
+        return new Map(
+            Array.from(target.entries()).map(([key, val]) => [key, deepCopy(val)])
+        ) as any;
+    if (target instanceof Set)
+        return new Set(Array.from(target.values()).map((v) => deepCopy(v))) as any;
+    if (target instanceof Date) return new Date(target.toString()) as any;
+    if (target instanceof RegExp) return new RegExp(target.source, target.flags) as any;
 
     const result = Array.isArray(target) ? [] : {};
     Object.entries(target).forEach(([key, value]) => {
@@ -20,5 +24,5 @@ export function deepCopy<T>(target: T, map = new Map()) {
         }
     });
 
-    return result;
+    return result as T;
 }
