@@ -31,3 +31,15 @@ export const hyphenate = cacheStringFunction((str: string) => {
 
 export const genRangeRandom = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min) + 1) + min;
+
+export function timeout(ms: number, isThrowError: boolean = false, reason: string = 'timeout') {
+    return new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+            if (isThrowError) {
+                reject(new Error(reason));
+            } else {
+                resolve();
+            }
+        }, ms);
+    });
+}
