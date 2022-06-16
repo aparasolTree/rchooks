@@ -7,7 +7,7 @@ export function useUpdateEffect(effectFn: EffectCallback, deps?: DependencyList)
 
     useEffect(() => {
         if (!isFirst) {
-            effectFn();
+            return effectFn();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);

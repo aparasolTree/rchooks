@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-export function useSetState<T>(initialState: T | (() => T)) {
+export function useSetState<T>(initialState: T | (() => T) = {} as T) {
     const [state, _setState] = useState<T>(initialState);
     const setState = useCallback((newValue: Partial<T> | ((prevState: T) => Partial<T>)) => {
         _setState((prevState) =>

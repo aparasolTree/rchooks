@@ -16,15 +16,23 @@ export function useToggle<Truth, False, T extends Truth | False = Truth | False>
 ): [T, (value?: T) => void];
 
 export function useToggle(
-    initialValue: boolean = true,
+    initialValue: boolean = false,
     options: UseToggleOptions<true, false> = {}
 ) {
     const { truthValue = true, falseValue = false } = options;
-    const [state, setState] = useState(initialValue || false);
+    const [state, setState] = useState(initialValue);
     const toggle = useCallback(
         function (value?: boolean) {
             if (arguments.length) {
-                setState(value!);
+                if (truthValue === value || falseValue === value) {
+                    setState(value);
+                } else {
+                    console.error(
+                        `[useToggle]: The value passed in must be ${JSON.stringify(
+                            truthValue
+                        )} or ${JSON.stringify(falseValue)}`
+                    );
+                }
             } else {
                 setState((state) => (state === truthValue ? falseValue : truthValue));
             }
