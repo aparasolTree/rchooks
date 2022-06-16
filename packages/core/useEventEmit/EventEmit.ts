@@ -19,7 +19,7 @@ export default class EventEmit<T> {
         this.cache.current.push(listener);
     }
 
-    disPatch(args: T) {
+    disPatch(args?: T) {
         let set: Set<Fn> | undefined = cacheEvent.get(this.key);
         set?.forEach((fn) => fn(args));
     }

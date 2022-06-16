@@ -1,4 +1,4 @@
-import { Fn, hasOwn } from '@rchooks/shared';
+import { deepCopy, Fn, hasOwn } from '@rchooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 function createGetter(update: Fn, options?: ProxyOptions) {
@@ -6,7 +6,7 @@ function createGetter(update: Fn, options?: ProxyOptions) {
         if (prop === 'raw') return target;
         const result = Reflect.get(target, prop, receiver);
         if (typeof result === 'object' && result !== null) {
-            return options?.isShadow ? result : reactive(result, update);
+            return options?.isShallow ? deepCopy(result) : reactive(result, update);
         }
         return result;
     };
@@ -15,7 +15,7 @@ function createGetter(update: Fn, options?: ProxyOptions) {
 function createSetter(update: Fn, options?: ProxyOptions) {
     return function set(target: object, prop: string | symbol, value: unknown, receiver: object) {
         const oldValue = target[prop];
-        if (options?.isReadonly) return false;
+        if (options?.isReadonly) return true;
         const result = Reflect.set(target, prop, value, receiver);
         if (target === receiver['raw']) {
             if (oldValue !== value && (!Number.isNaN(oldValue) || !Number.isNaN(value))) {

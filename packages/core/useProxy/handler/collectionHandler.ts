@@ -1,4 +1,4 @@
-import { Fn } from '@rchooks/shared';
+import { deepCopy, Fn } from '@rchooks/shared';
 import { ProxyOptions, reactive } from './reactive';
 
 export type CollectionType = InterableCollections | WeakCollection;
@@ -43,7 +43,9 @@ function collectionProxy(update: Fn, options?: ProxyOptions) {
             if (hasKey) {
                 const result = target.get(key);
                 if (typeof result === 'object' && result !== null) {
-                    return options?.isShadow ? result : reactive(result, update, options);
+                    return options?.isShallow
+                        ? deepCopy(result)
+                        : reactive(result, update, options);
                 } else {
                     return result;
                 }

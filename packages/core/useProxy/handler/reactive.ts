@@ -4,7 +4,7 @@ import { collectionHandler } from './collectionHandler';
 
 export interface ProxyOptions {
     isReadonly?: boolean;
-    isShadow?: boolean;
+    isShallow?: boolean;
 }
 
 const reactiveMap = new Map();
@@ -53,6 +53,8 @@ export function reactive<T extends object>(source: T, update: Fn, options?: Prox
     if (existionProxy) return existionProxy;
 
     const proxy = createReactive(source, update, options);
+    const stringTag = proxy[Symbol.toStringTag];
+    proxy[Symbol.toStringTag] = 'Proxy ' + stringTag;
     reactiveMap.set(source, proxy);
     return proxy as T;
 }

@@ -5,3 +5,4 @@ export * from './cookie';
 
 export * from './debounce';
 export * from './throttle';
+export * from './deepCopy';

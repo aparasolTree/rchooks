@@ -12,7 +12,7 @@ import { useProxy } from '@rchooks/core';
 const Demo: React.FC = () => {
     const state = useProxy({ count: 1, user: { name: 'xl', age: 19 }, like: ['react'] }, {
         isReadonly: false,
-        isShadow: false
+        isShallow: false
     });
 
     return (
@@ -30,7 +30,7 @@ const Demo: React.FC = () => {
 ```tsx
 export interface ProxyOptions {
     isReadonly?: boolean; // 是否只读
-    isShadow?: boolean; // 是否浅响应
+    isShallow?: boolean; // 是否浅响应
 }
 
 const proxyState = function useProxy<T extends object>(initialState: T, options?: ProxyOptions): T
