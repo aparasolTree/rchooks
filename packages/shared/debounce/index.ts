@@ -12,12 +12,12 @@ export function debounce<F extends Fn>(fn: F, ms: number = 0, options: DebounceO
     function debounceWrap(this: unknown, ...args: Parameters<F>) {
         if (timeoutId) clearTimeout(timeoutId);
         if (ms < 0) {
-            return fn.apply(null, args);
+            return fn.apply(this, args);
         }
 
         if (immediate) {
             immediate = false;
-            return fn.apply(null, args);
+            return fn.apply(this, args);
         } else {
             timeoutId = setTimeout(() => {
                 if (immediateCallback) {
