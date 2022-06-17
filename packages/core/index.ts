@@ -11,6 +11,7 @@ export * from './useDownload';
 export * from './useElementBounding';
 export * from './useElementByPoint';
 export * from './useElementHover';
+export * from './useElementScroll';
 export * from './useElementSize';
 export * from './useElementVisibility';
 export * from './useEventEmit';
