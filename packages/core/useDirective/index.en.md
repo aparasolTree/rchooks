@@ -28,7 +28,7 @@ function App() {
     const [show, setShow] = useState(true)
     return (
         <div>
-            <div ref={useDirective<HTMLDivElement, boolean>('r-show', show)}
+            <div ref={useDirective('r-show', show, [show])}
                 style={{
                     width: '100px', height: '100px', backgroundColor: 'orange'
                 }}

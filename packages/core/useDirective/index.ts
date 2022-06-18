@@ -1,27 +1,41 @@
 import { Fn } from '@rchooks/shared';
-import React, { useEffect, useRef } from 'react';
+import React, { DependencyList, useEffect, useRef } from 'react';
+import { useLatest } from '../useLatest';
 import { Direction, DirectionBind, directives } from './lib/directives';
 
 export function useDirective<E extends Element = Element, D extends any = any>(
     dir: string,
-    depValue?: D
+    depValue?: D,
+    deps?: DependencyList
 ): React.RefObject<E>;
 export function useDirective<E extends Element = Element, D extends any = any>(
     dir: Direction,
-    depValue: D
+    depValue: D,
+    deps?: DependencyList
 ): React.RefObject<E>;
 
 export function useDirective<E extends Element = Element, D extends any = any>(
     dir: string,
-    depValue?: D
+    depValue?: D,
+    deps?: DependencyList
 ) {
     const ref = useRef<E>(null);
+    const oldValue = useRef<D>();
+    const depValueRef = useLatest<D | undefined>(depValue);
+
     useEffect(() => {
-        const cancelEffect = directives[dir]?.(ref.current, { content: depValue });
+        const cancelEffect = directives[dir]?.(ref.current, {
+            value: depValueRef.current,
+            oldValue,
+            name: dir,
+        });
+
+        oldValue.current = depValueRef.current;
         return () => {
             cancelEffect && cancelEffect();
         };
-    }, [depValue, dir]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [...(deps || []), dir]);
     return ref;
 }
 
@@ -33,7 +47,10 @@ useDirective.register = (
         throw new Error('[useDirective.register]: Directives must start with r-');
     }
 
-    if (!directives[directiveName]) {
-        directives[directiveName] = callback;
+    if (directives[directiveName]) {
+        console.warn(`[useDirective.register]: ${directiveName} directive already exists`);
+        return;
     }
+
+    directives[directiveName] = callback;
 };
