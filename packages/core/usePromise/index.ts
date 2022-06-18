@@ -1,4 +1,4 @@
-import { isFunction, noop } from '@rchooks/shared';
+import { isFunction, isPromise, noop } from '@rchooks/shared';
 import { useCallback, useState } from 'react';
 import { useLatest } from '../useLatest';
 import { useMount } from '../useMount';
@@ -26,8 +26,10 @@ export function usePromise<T = any>(
 
         if (isFunction(promiseRef.current)) {
             promiseRef.current().then(onResolve, onReject);
-        } else {
+        } else if (isPromise(promiseRef.current)) {
             promiseRef.current.then(onResolve, onReject);
+        } else {
+            console.error(`[usePromise]: must be a promise or a function that returns a promise`);
         }
     }, [errorRef, promiseRef]);
 

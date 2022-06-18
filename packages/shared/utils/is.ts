@@ -7,8 +7,9 @@ export const isString = (val: unknown): val is string => getRawType(val) === 'st
 export const isNumber = (val: unknown): val is number => getRawType(val) === 'number';
 export const isBoolean = (val: unknown): val is boolean => getRawType(val) === 'boolean';
 export const isFunction = (val: unknown): val is Function => getRawType(val) === 'function';
-export const isObject = (val: unknown): val is Object => getRawType(val) === 'object';
+export const isObject = (val: unknown): val is Record<any, any> => getRawType(val) === 'object';
 export const isDate = (val: unknown): val is Date => getRawType(val) === 'object';
 export const isSymbol = (val: unknown): val is Symbol => getRawType(val) === 'symbol';
-
+export const isPromise = (val: unknown): val is Promise<any> =>
+    isObject(val) && isFunction(val.then) && isFunction(val.catch);
 export const isBrowser = !!(window && window.document && window.document.createElement);

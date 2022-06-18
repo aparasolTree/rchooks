@@ -2,19 +2,19 @@ import { timeout } from '@rchooks/shared';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { usePromise } from '.';
 
+function fetcher<T extends unknown>(result: T, delay: number = 1000) {
+    return new Promise<T>((resolve) => {
+        setTimeout(() => resolve(result), delay);
+    });
+}
+
+function fetcherError<T extends unknown>(result: T, delay: number = 1000) {
+    return new Promise<T>((_, reject) => {
+        setTimeout(() => reject(result), delay);
+    });
+}
+
 describe('usePromise', () => {
-    function fetcher<T extends unknown>(result: T, delay: number = 1000) {
-        return new Promise<T>((resolve) => {
-            setTimeout(() => resolve(result), delay);
-        });
-    }
-
-    function fetcherError<T extends unknown>(result: T, delay: number = 1000) {
-        return new Promise<T>((_, reject) => {
-            setTimeout(() => reject(result), delay);
-        });
-    }
-
     it('should be defined', () => {
         expect(usePromise).toBeDefined();
     });
