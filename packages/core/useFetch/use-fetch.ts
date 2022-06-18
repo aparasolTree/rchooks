@@ -54,7 +54,7 @@ export function useFetch<Data = any, Error = any>(...args: any[]) {
     } else key = _key;
     config = Object.assign({}, useFetchContext(), config);
     key = config.baseUrl + key;
-    if (isDef(fetcher)) fetcher = config.fetcher;
+    if (!isDef(fetcher)) fetcher = config.fetcher;
 
     const [data, setData] = useState<Data>(getCache(key));
     const [error, setError] = useState<Error>();

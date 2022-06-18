@@ -7,10 +7,12 @@ export function useActiveElement() {
     useEffect(() => {
         if (!isBrowser) return;
         const handler = () => setActiveElement(document?.activeElement);
-        window.addEventListener('focus', handler);
+        window.addEventListener('focus', handler, true);
+        window.addEventListener('blur', handler, true);
 
         return () => {
-            window.removeEventListener('blur', handler);
+            window.removeEventListener('focus', handler, true);
+            window.removeEventListener('blur', handler, true);
         };
     }, []);
 

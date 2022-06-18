@@ -13,4 +13,4 @@ export const isSymbol = (val: unknown): val is Symbol => getRawType(val) === 'sy
 export const isPromise = (val: unknown): val is Promise<any> =>
     isObject(val) && isFunction(val.then) && isFunction(val.catch);
 export const isBrowser = !!(window && window.document && window.document.createElement);
-export const isDef = (val: unknown): val is undefined => typeof val === 'undefined';
+export const isDef = (val: unknown): val is undefined => typeof val !== 'undefined';

@@ -20,6 +20,7 @@ export * from './useEventListener';
 export * from './useFavicon';
 export * from './useFetch';
 export * from './useFirstMountState';
+export * from './useFocus';
 export * from './useInterval';
 export * from './useIntervalFn';
 export * from './useKey';
