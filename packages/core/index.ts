@@ -18,6 +18,7 @@ export * from './useElementVisibility';
 export * from './useEventEmit';
 export * from './useEventListener';
 export * from './useFavicon';
+export * from './useFetch';
 export * from './useFirstMountState';
 export * from './useInterval';
 export * from './useIntervalFn';
