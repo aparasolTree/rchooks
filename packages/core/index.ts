@@ -29,6 +29,7 @@ export * from './useMount';
 export * from './useMountedState';
 export * from './useMouse';
 export * from './useMutationObserver';
+export * from './usePromise';
 export * from './useProxy';
 export * from './useRafFn';
 export * from './useResizeObserver';
