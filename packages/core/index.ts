@@ -42,6 +42,7 @@ export * from './useSetState';
 export * from './useSSR';
 export * from './useStorage';
 export * from './useStyle';
+export * from './useTextSelection';
 export * from './useTheme';
 export * from './useThrottleFn';
 export * from './useTimeAgo';
