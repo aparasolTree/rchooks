@@ -1,5 +1,5 @@
 import { isBrowser } from '@rchooks/shared';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useUpdate } from '../useUpdate';
 
 function getRangesFromSelection(selection: Selection) {
@@ -14,10 +14,14 @@ function getRangesFromSelection(selection: Selection) {
 
 export function useTextSelection() {
     const selection = useRef<Selection>(window.getSelection());
-    const text = () => selection.current?.toString() ?? '';
-    const ranges = () => (selection.current ? getRangesFromSelection(selection.current!) : []);
-    const rects = () => ranges().map((range) => range.getBoundingClientRect());
     const update = useUpdate();
+
+    const actions = useMemo(() => {
+        const text = () => selection.current?.toString() ?? '';
+        const ranges = () => (selection.current ? getRangesFromSelection(selection.current!) : []);
+        const rects = () => ranges().map((range) => range.getBoundingClientRect());
+        return { text, ranges, rects };
+    }, []);
 
     useEffect(() => {
         const onSelctionChange = () => isBrowser && update();
@@ -30,5 +34,5 @@ export function useTextSelection() {
         };
     }, [update]);
 
-    return { text, ranges, rects, selection };
+    return { ...actions, selection };
 }
