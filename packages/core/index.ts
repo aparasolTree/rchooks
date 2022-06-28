@@ -34,6 +34,7 @@ export * from './useMouse';
 export * from './useMutationObserver';
 export * from './usePromise';
 export * from './useProxy';
+export * from './useRaceConditions';
 export * from './useRafFn';
 export * from './useResizeObserver';
 export * from './useScript';
