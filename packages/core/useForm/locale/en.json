@@ -1,0 +1,6 @@
+{
+    "required": "{field} is required",
+    "max": "{field} is greater than the maximum length of {max}",
+    "min": "{field} is less than the minimum length of {min}",
+    "email": "{field} email format is incorrect"
+}

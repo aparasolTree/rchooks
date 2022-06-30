@@ -1,0 +1,6 @@
+{
+    "required": "{field} 是必填项",
+    "max": "{field} 长度大于最大值 {max}",
+    "min": "{field} 长度小于最小值 {min}",
+    "email": "{field} 邮箱格式不正确"
+}

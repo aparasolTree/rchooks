@@ -14,3 +14,12 @@ export const isPromise = (val: unknown): val is Promise<any> =>
     isObject(val) && isFunction(val.then) && isFunction(val.catch);
 export const isBrowser = !!(window && window.document && window.document.createElement);
 export const isDef = (val: unknown): val is undefined => typeof val !== 'undefined';
+
+export const isEmptyArray = (arr: unknown): boolean => Array.isArray(arr) && arr.length === 0;
+export const isNullOrUndefined = (value: unknown): value is undefined | null =>
+    value === null || value === undefined;
+export const isEmpty = (value: unknown) => {
+    if (value == null || value === '') return true;
+    if (Array.isArray(value) && value.length === 0) return true;
+    return false;
+};
