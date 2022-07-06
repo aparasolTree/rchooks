@@ -1,6 +1,7 @@
 import type { RollupOptions, OutputOptions } from 'rollup';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import Json from '@rollup/plugin-json';
 import dts from 'rollup-plugin-dts';
 import { packages } from '../meta/pageages';
 
@@ -67,6 +68,7 @@ for (const { globals, name, external, iife } of packages) {
                         },
                     },
                 }),
+                Json(),
             ],
             external: ['@rchooks/shared', ...(external || [])],
         });

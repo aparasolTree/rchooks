@@ -10,6 +10,7 @@ importers:
       '@babel/preset-react': ^7.17.12
       '@babel/preset-typescript': ^7.17.12
       '@jest/types': ^28.1.1
+      '@rollup/plugin-json': ^4.1.0
       '@testing-library/react-hooks': ^8.0.0
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^28.1.1
@@ -58,6 +59,7 @@ importers:
       '@babel/preset-react': 7.17.12_@babel+core@7.18.5
       '@babel/preset-typescript': 7.17.12_@babel+core@7.18.5
       '@jest/types': 28.1.1
+      '@rollup/plugin-json': 4.1.0_rollup@2.75.6
       '@testing-library/react-hooks': 8.0.0_mroogryavx5alijl34jhuwj7ga
       '@types/fs-extra': 9.0.13
       '@types/jest': 28.1.1
@@ -1821,6 +1823,27 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@rollup/plugin-json/4.1.0_rollup@2.75.6:
+    resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0_rollup@2.75.6
+      rollup: 2.75.6
+    dev: true
+
+  /@rollup/pluginutils/3.1.0_rollup@2.75.6:
+    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.1
+      rollup: 2.75.6
+    dev: true
+
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
@@ -1921,6 +1944,10 @@ packages:
     resolution: {integrity: sha512-kVzjari1s2YVi77D3w1yuvohV2idweYXMCDzqBiVNN63TcDWrIlTVOYpqVrvbbyOE/IyzBoTKF0fdnLPEORFxA==}
     dependencies:
       '@babel/types': 7.18.4
+    dev: true
+
+  /@types/estree/0.0.39:
+    resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
 
   /@types/fs-extra/9.0.13:
@@ -3743,6 +3770,10 @@ packages:
   /estraverse/5.3.0:
     resolution: {integrity: sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==}
     engines: {node: '>=4.0'}
+    dev: true
+
+  /estree-walker/1.0.1:
+    resolution: {integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==}
     dev: true
 
   /estree-walker/2.0.2:
